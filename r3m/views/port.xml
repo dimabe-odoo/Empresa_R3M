@@ -52,7 +52,7 @@
       </field>
     </record>
 
-    <menuitem id="menu_sale_export" name="Logística" parent="sale.sale_menu_root"  />
+    <menuitem id="menu_sale_export" name="Logística" parent="stock.menu_stock_root"  />
     <menuitem id="menu_r3m_port"
               name="Puertos"
               parent="menu_sale_export"

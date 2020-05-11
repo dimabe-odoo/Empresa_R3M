@@ -40,7 +40,7 @@
 
 
     <record id="action_r3m_truck_views" model="ir.actions.act_window">
-      <field name="name">Puertos de aduana</field>
+      <field name="name">Camiones R3M</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">r3m.truck</field>
       <field name="view_mode">tree,form</field>
