@@ -27,19 +27,24 @@
                                     <field name="r3m_plant" />
                                     <field name="r3m_eta" />
                                 </group>
-                                <group string="Transpoorte">
-                                    <field name="r3m_truck"/>
-                                    <field name="r3m_driver"/>
-                                    <field name="r3m_date_dispatched"/>
-                                    <field name="r3m_date_on_port"/>
-                                </group>
-                            </group>
-                            <group style="width:100%;">
                                 <group>
                                     <field name="remarks"/>
                                 </group>
                             </group>
                         </group>
+                    </page>
+                </xpath>
+
+                <xpath expr="//page[@name='cartocor_data']" position="after">
+                    <page string="Transporte" id="r3m_transport"
+                          attrs="{'invisible':[('picking_type_code', '=', 'internal')]}"
+                    >
+                                <group string="Datos camión">
+                                    <field name="r3m_truck"/>
+                                    <field name="r3m_driver"/>
+                                    <field name="r3m_date_dispatched"/>
+                                    <field name="r3m_date_on_port"/>
+                                </group>
                     </page>
                 </xpath>
             </field>
