@@ -57,7 +57,7 @@
     <menuitem id="menu_r3m_truck"
               name="Camiones"
               parent="menu_sale_export"
-              action="action_r3m_port_views"
+              action="action_r3m_truck_views"
     />
   </data>
 </odoo>
