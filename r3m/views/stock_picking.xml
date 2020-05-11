@@ -18,7 +18,7 @@
                                 <group>
                                     <field name="r3m_po"/>
                                     <field name="r3m_order"/>
-                                    <field name="r3m_destination" />
+                                    <field name="r3m_destination" options="{'limit': 10, 'create': true, 'create_edit': true}" />
                                     <field name="r3m_container"/>
                                     <field name="r3m_booking"/>
                                     <field name="r3m_bl"/>
