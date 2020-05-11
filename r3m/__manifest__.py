@@ -27,7 +27,7 @@
         'security/ir.model.access.csv',
         'views/port.xml',
         'views/brand.xml',
-        'views/truck',
+        'views/truck.xml',
         'views/stock_picking.xml',
     ],
     # only loaded in demonstration mode
