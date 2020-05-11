@@ -6,7 +6,7 @@ class StockPicking(models.Model):
     _inherit = 'stock.picking'
     r3m_po = fields.Char('Purchase Order')
     r3m_order = fields.Char('Pedido')
-    r3m_destination = fields.Many2one(comodel_name='r3m.port', 'Puerto destino')
+    r3m_destination = fields.Many2one(comodel_name='r3m.port', string = 'Puerto destino')
     r3m_container = fields.Char('Contenedor')
     r3m_booking = fields.Char('Booking Number')
     r3m_bl = fields.Char('BL')
@@ -19,8 +19,8 @@ class StockPicking(models.Model):
 
     # Transporte 
 
-    r3m_truck = fields.Many2one(comodel_name='r3m.truck', 'Camión')
-    r3m_driver = fields.Many2one(comodel_name='res.partner', 'Conductor')
+    r3m_truck = fields.Many2one(comodel_name='r3m.truck', string = 'Camión')
+    r3m_driver = fields.Many2one(comodel_name='res.partner', string = 'Conductor')
     r3m_date_dispatched = fields.Datetime('Fecha de salida')
     r3m_date_on_port = fields.Datetime('Fecha llegada a puerto')
 
