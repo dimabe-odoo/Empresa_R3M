@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <record id="stock_picking_form_inherit" model="ir.ui.view">
+            <field name="name">Export Page</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='extra']" position="after">
+                    <page string="Cartocor" id="cartocor_data"
+                          attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}"
+                    >
+                        <group name="cartocor_data"
+                               position="inside"
+                        >
+                            <group string="Pedido"
+                                   style="width:100%;"
+                            >
+                                <group>
+                                    <field name="r3m_po"/>
+                                    <field name="r3m_order"/>
+                                    <field name="r3m_destination" />
+                                    <field name="r3m_container"/>
+                                    <field name="r3m_booking"/>
+                                    <field name="r3m_bl"/>
+                                    <field name="r3m_vessel"/>
+                                    <field name="r3m_account"/>
+                                    <field name="r3m_plant" />
+                                    <field name="r3m_eta" />
+                                </group>
+                                <group string="Transpoorte">
+                                    <field name="r3m_truck"/>
+                                    <field name="r3m_driver"/>
+                                    <field name="r3m_date_dispatched"/>
+                                    <field name="r3m_date_on_port"/>
+                                </group>
+                            </group>
+                            <group style="width:100%;">
+                                <group>
+                                    <field name="remarks"/>
+                                </group>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='move_line_nosuggest_ids']/tree//field[@name='lot_id']"
+                       position="after">
+                    <field name="kilos" />
+                    <field name="linear_m" />
+                    <field name="area_sqm" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
