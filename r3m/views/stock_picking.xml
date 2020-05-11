@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//page[@name='extra']" position="after">
                     <page string="Cartocor" id="cartocor_data"
-                          attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}"
+                          attrs="{'invisible':[('picking_type_code', '!=', 'internal')]}"
                     >
                         <group name="cartocor_data"
                                position="inside"
