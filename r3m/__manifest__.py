@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale_management', 'contacts', 'stock', 'sale_stock'],
+    'depends': ['base', 'sale_management', 'contacts', 'stock', 'sale_stock', 'purchase_stock'],
 
     # always loaded
     'data': [
@@ -28,7 +28,7 @@
         'views/port.xml',
         'views/brand.xml',
         'views/truck.xml',
-        #'views/stock_picking.xml',
+        'views/stock_picking.xml',
         'views/res_partner.xml'
     ],
     # only loaded in demonstration mode
