@@ -6,3 +6,4 @@ class StockProductionLot(models.Model):
     kilos = fields.Integer('Kilos')
     linear_m = fields.Integer('Linear M')
     area_sqm = fields.Integer('AREA SQM')
+    container_number = fields.Char('Número de contenedor')
