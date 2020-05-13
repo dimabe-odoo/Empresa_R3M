@@ -57,10 +57,10 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='product_qty']"
                        position="after">
-                    <field name="kilos"  />
-                    <field name="linear_m"  />
-                    <field name="area_sqm"  />
-                    <field name="container_number" />
+                    <field name="kilos" placeholder="Kilos" />
+                    <field name="linear_m" placeholder="Linear M"  />
+                    <field name="area_sqm" placeholder="Área SQM"  />
+                    <field name="container_number" placeholder="N° Contenedor" />
                 </xpath>
             </field>
         </record>
