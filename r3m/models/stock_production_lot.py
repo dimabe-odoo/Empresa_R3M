@@ -1,7 +1,7 @@
 from odoo import models, fields
 
-class StockMoveLine(models.Model):
-    _inherit = 'stock.move.line'
+class StockProductionLot(models.Model):
+    _inherit = 'stock.production.lot'
 
     kilos = fields.Integer('Kilos')
     linear_m = fields.Integer('Linear M')

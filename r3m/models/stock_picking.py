@@ -22,5 +22,5 @@ class StockPicking(models.Model):
     r3m_truck = fields.Many2one(comodel_name='r3m.truck', string = 'Camión')
     r3m_driver = fields.Many2one(comodel_name='res.partner', string = 'Conductor')
     r3m_date_dispatched = fields.Datetime('Fecha de salida')
-    r3m_date_on_port = fields.Datetime('Fecha llegada a puerto')
+    r3m_date_on_port = fields.Datetime('Fecha llegada a destino')
 
