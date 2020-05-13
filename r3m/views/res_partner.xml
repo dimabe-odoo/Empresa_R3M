@@ -4,8 +4,8 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='street']" position="before">
-                    <field name="r3m_plant_ids" />
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="r3m_plant_ids" placeholder="plantas" />
                 </xpath>
             </field>
         </record>
