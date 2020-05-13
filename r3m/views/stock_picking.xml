@@ -57,9 +57,9 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='lot_id']"
                        position="after">
-                    <field name="lot_id.kilos" />
+                    <!--<field name="lot_id.kilos" />
                     <field name="lot_id.linear_m" />
-                    <field name="lot_id.area_sqm" />
+                    <field name="lot_id.area_sqm" />-->
                 </xpath>
             </field>
         </record>
