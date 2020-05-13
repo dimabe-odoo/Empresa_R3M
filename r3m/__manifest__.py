@@ -29,6 +29,7 @@
         'views/brand.xml',
         'views/truck.xml',
         'views/stock_picking.xml',
+        'views/res_partner.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
