@@ -24,7 +24,8 @@
                                     <field name="r3m_bl"/>
                                     <field name="r3m_vessel"/>
                                     <field name="r3m_account"/>
-                                    <field name="r3m_plant" />
+                                    <field name="r3m_partner_plant_ids" invisible="1" />
+                                    <field name="r3m_plant_id" domain="[('id','in','r3m_partner_plant_ids')]" />
                                     <field name="r3m_eta" />
                                 </group>
                                 <group>
@@ -51,7 +52,7 @@
         </record>
 
         <record id="stock_view_production_lot_form_inherit" model="ir.ui.view">
-            <field name="name">stock production  lot r4m</field>
+            <field name="name">stock production lot r3m</field>
             <field name="model">stock.production.lot</field>
             <field name="inherit_id" ref="stock.view_production_lot_form"/>
             <field name="arch" type="xml">
