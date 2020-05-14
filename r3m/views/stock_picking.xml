@@ -24,8 +24,8 @@
                                     <field name="r3m_bl"/>
                                     <field name="r3m_vessel"/>
                                     <field name="r3m_account"/>
-                                    <field name="r3m_partner_plant_ids"  />
-                                    <field name="r3m_plant_id" domain="[('id','in','[r3m_partner_plant_ids]')]" />
+                                    <field name="r3m_partner_plant_ids" invisible="1" />
+                                    <field name="r3m_plant_id" domain="[('id','in',r3m_partner_plant_ids)]" />
                                     <field name="r3m_eta" />
                                 </group>
                                 <group>
