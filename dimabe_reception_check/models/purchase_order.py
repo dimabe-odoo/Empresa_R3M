@@ -34,7 +34,6 @@ class PurchaseOrder(models.Model):
             if line.product_id.type == 'service':
                 self.has_service = True
 
-    @api.multi
     def send_hes(self):
         template_id = self.env.ref('dimabe_reception_check.hes_mail_template')
         self.message_post_with_template(template_id.id)
@@ -59,7 +58,6 @@ class PurchaseOrder(models.Model):
         self.hes_sent_count = self.hes_sent_count + 1
         return self
 
-    @api.multi
     def action_view_invoice(self):
 
         for order in self:
