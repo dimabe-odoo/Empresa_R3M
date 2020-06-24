@@ -33,8 +33,8 @@
         'views/stock_picking.xml',
         'views/check_list_item.xml',
         'views/check_list_response.xml',
-        'views/purchase_order.xml',
-        'data/send_hes_mail_template.xml'
+        #'views/purchase_order.xml',
+        #'data/send_hes_mail_template.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
