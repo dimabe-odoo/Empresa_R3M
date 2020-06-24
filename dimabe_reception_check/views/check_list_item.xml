@@ -5,7 +5,6 @@
         <record id="check_list_action" model="ir.actions.act_window">
             <field name="name">Lista de Revisión Recepción</field>
             <field name="res_model">check.list.item</field>
-            <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
 
