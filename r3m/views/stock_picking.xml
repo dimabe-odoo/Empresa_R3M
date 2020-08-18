@@ -46,6 +46,7 @@
                                     <field name="r3m_date_dispatched"/>
                                     <field name="r3m_date_on_port"/>
                                 </group>
+
                     </page>
                 </xpath>
             </field>

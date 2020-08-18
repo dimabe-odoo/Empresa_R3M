@@ -11,7 +11,7 @@ class StockPicking(models.Model):
     r3m_booking = fields.Char('Booking Number')
     r3m_bl = fields.Char('BL')
     r3m_vessel = fields.Char('Vessel')
-    r3m_account = fields.Char('Cuenta')
+    r3m_account = fields.Char('Factura')
     r3m_partner_plant_ids = fields.Many2many('r3m.plant', related='partner_id.r3m_plant_ids')
     r3m_plant_id = fields.Many2one('r3m.plant', string = 'Planta')
     r3m_eta = fields.Date('ETA')

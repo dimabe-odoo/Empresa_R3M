@@ -30,7 +30,9 @@
         'views/truck.xml',
         'views/stock_picking.xml',
         'views/res_partner.xml',
-        'views/plant.xml'
+        'views/plant.xml',
+        'views/stock_quant.xml',
+        'reports/delivery_slip.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

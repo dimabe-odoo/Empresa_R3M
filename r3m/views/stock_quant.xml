@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_stock_quant_tree_editable" model="ir.ui.view">
+            <field name="name">r3m.stock.view_stock_quant_tree_editable.form</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.view_stock_quant_tree_editable"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='quantity']" position="after">
+                    <field name="r3m_eta"/>
+                    <field name="r3m_partner_id" widget="many2onebutton"/>
+                    <field name="r3m_po"/>
+                    <field name="r3m_container"/>
+                    <field name="r3m_bl"/>
+                    <field name="r3m_booking"/>
+                    <field name="r3m_picking_date"/>
+                    <field name="r3m_roll_number"/>
+                    <field name="r3m_gramaje"/>
+                    <field name="r3m_paper_type"/>
+                    <field name="r3m_format"/>
+                    <field name="r3m_rol_weight"/>
+                    <field name="r3m_linear_m"/>
+                    <field name="r3m_order" />
+                    <field name="r3m_oc" />
+                    <button type="object" string="Charge" name="charge_data" groups="base.group_no_one"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
