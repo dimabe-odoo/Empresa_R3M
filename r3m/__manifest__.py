@@ -32,7 +32,8 @@
         'views/res_partner.xml',
         'views/plant.xml',
         'views/stock_quant.xml',
-        'reports/delivery_slip.xml'
+        'reports/delivery_slip.xml',
+        'views/stock_location.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

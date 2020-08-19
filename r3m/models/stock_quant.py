@@ -39,8 +39,8 @@ class StockQuant(models.Model):
     @api.model
     def create(self, values_list):
         picking_id = self.env['stock.move.line'].search(
-            [('lot_id.id', '=', values_list['lot_id']),
-             ('product_id.id', '=', values_list['product_id'])]).picking_id
+            [('.id', '=', values_list['lot_id']),
+             ('product_id.id', '=', values_list['product_id']), ('picking_type_code', '=', 'incoming')]).picking_id
         if picking_id:
             values_list['r3m_partner_id'] = picking_id.partner_id.id
             values_list['picking_id'] = picking_id.id

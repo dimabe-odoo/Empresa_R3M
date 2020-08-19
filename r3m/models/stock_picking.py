@@ -25,3 +25,13 @@ class StockPicking(models.Model):
     r3m_date_dispatched = fields.Datetime('Fecha de salida')
     r3m_date_on_port = fields.Datetime('Fecha llegada a destino')
 
+    confirmed_container = fields.Char()
+
+    has_full_container = fields.Boolean(compute='compute_has_full_container')
+
+    @api.onchange('location_id')
+    def compute_has_full_container(self):
+        for item in self:
+            item.has_full_container = item.location_id.has_full_container
+
+
