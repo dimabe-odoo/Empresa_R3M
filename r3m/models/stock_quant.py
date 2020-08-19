@@ -40,8 +40,8 @@ class StockQuant(models.Model):
     def create(self, values_list):
         picking_id = self.env['stock.move.line'].search(
             [('.id', '=', values_list['lot_id']),
-             ('product_id.id', '=', values_list['product_id']), ('picking_type_code', '=', 'incoming')]).picking_id
-        if picking_id:
+             ('product_id.id', '=', values_list['product_id'])]).picking_id
+        if picking_id and picking_id.picking_type_code == 'incoming':
             values_list['r3m_partner_id'] = picking_id.partner_id.id
             values_list['picking_id'] = picking_id.id
             values_list['r3m_eta'] = picking_id.r3m_eta
@@ -52,13 +52,13 @@ class StockQuant(models.Model):
             values_list['r3m_order'] = picking_id.r3m_order
             values_list['r3m_oc'] = picking_id.r3m_po
             values_list['r3m_picking_date'] = picking_id.create_date
-        lot = self.env['stock.production.lot'].search([('id', '=', values_list['lot_id'])])
-        if lot:
-            values_list['r3m_rol_weight'] = lot.kilos
-            values_list['r3m_linear_m'] = lot.linear_m
-        values_list['r3m_gramaje'] = self.variant_search(values_list['product_id'], 'gramaje')
-        values_list['r3m_paper_type'] = self.variant_search(values_list['product_id'], 'tipo de papel')
-        values_list['r3m_format'] = self.variant_search(values_list['product_id'], 'formato de bobina')
+            lot = self.env['stock.production.lot'].search([('id', '=', values_list['lot_id'])])
+            if lot and picking_id.picking_type_code == 'incoming':
+                values_list['r3m_rol_weight'] = lot.kilos
+                values_list['r3m_linear_m'] = lot.linear_m
+            values_list['r3m_gramaje'] = self.variant_search(values_list['product_id'], 'gramaje')
+            values_list['r3m_paper_type'] = self.variant_search(values_list['product_id'], 'tipo de papel')
+            values_list['r3m_format'] = self.variant_search(values_list['product_id'], 'formato de bobina')
         super(StockQuant, self).create(values_list)
 
     def charge_data(self):

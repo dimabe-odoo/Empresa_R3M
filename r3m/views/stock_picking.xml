@@ -36,7 +36,7 @@
                     </page>
                 </xpath>
                 <xpath expr="//field[@name='origin']" position="after">
-                    <field name="confirmed_container"/>
+                    <field name="confirmed_container" />
                 </xpath>
                 <xpath expr="//page[@name='extra']" position="after">
                     <page string="Transporte" id="r3m_transport"
