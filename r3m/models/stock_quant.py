@@ -69,9 +69,14 @@ class StockQuant(models.Model):
     def charge_data(self):
         quants = self.env['stock.quant'].search([])
         for q in quants:
-            picking_id = self.env['stock.move.line'].search(
-                [('lot_id.id', '=', q.lot_id.id),
-                 ('product_id.id', '=', q.product_id.id)]).picking_id
+            if self.env['stock.move.line'].search(
+                    [('lot_id.id', '=', q.lot_id.id),
+                     ('location_dest_id.id', '=', q.location_id.id),
+                     ('product_id.id', '=', q.product_id.id)]).picking_id:
+                picking_id = self.env['stock.move.line'].search(
+                    [('lot_id.id', '=', q.lot_id.id),
+                     ('location_dest_id.id', '=', q.location_id.id),
+                     ('product_id.id', '=', q.product_id.id)]).picking_id
             lot = self.env['stock.production.lot'].search([('id', '=', q.lot_id.id)])
             q.write({
                 'picking_id': picking_id.id,
