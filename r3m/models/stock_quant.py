@@ -104,5 +104,7 @@ class StockQuant(models.Model):
                       ]
 
         )
+        if not variant_res.product_attribute_value_id:
+            return ''
         variant = variant_res.product_attribute_value_id.name
         return variant
