@@ -38,14 +38,9 @@ class StockQuant(models.Model):
 
     @api.model
     def create(self, values_list):
-        if self.env['stock.move.line'].search(
-                [('lot_id.id', '=', values_list['lot_id']),
-                 ('location_dest_id.id', '=', values_list['location_id']),
-                 ('product_id.id', '=', values_list['product_id'])]).picking_id:
-            picking_id = self.env['stock.move.line'].search(
-                [('lot_id.id', '=', values_list['lot_id']),
-                 ('location_id.id', '=', values_list['location_id']),
-                 ('product_id.id', '=', values_list['product_id'])]).picking_id
+        pickings = self.env['stock.picking'].search([('location_dest_id.id', '=', values_list['location_id'])])
+        lot = self.env['stock.production.lot'].search([('id', '=', values_list['lot_id'])])
+        for picking_id in pickings:
             if picking_id and picking_id.picking_type_code == 'incoming':
                 values_list['r3m_partner_id'] = picking_id.partner_id.id
                 values_list['picking_id'] = picking_id.id
@@ -64,20 +59,14 @@ class StockQuant(models.Model):
                 values_list['r3m_gramaje'] = self.variant_search(values_list['product_id'], 'gramaje')
                 values_list['r3m_paper_type'] = self.variant_search(values_list['product_id'], 'tipo de papel')
                 values_list['r3m_format'] = self.variant_search(values_list['product_id'], 'formato de bobina')
-            super(StockQuant, self).create(values_list)
+        super(StockQuant, self).create(values_list)
 
     def charge_data(self):
         quants = self.env['stock.quant'].search([])
         for q in quants:
-            if self.env['stock.move.line'].search(
-                    [('lot_id.id', '=', q.lot_id.id), ('location_dest_id.id', '=', q.location_id.id),
-                     ('product_id.id', '=', q.product_id.id),
-                     ('picking_id.picking_type_code', '=', 'incoming')]).picking_id:
-                picking_id = self.env['stock.move.line'].search(
-                    [('lot_id.id', '=', q.lot_id.id), ('location_dest_id.id', '=', q.location_id.id),
-                     ('product_id.id', '=', q.product_id.id),
-                     ('picking_id.picking_type_code', '=', 'incoming')]).picking_id
-                lot = self.env['stock.production.lot'].search([('id', '=', q.lot_id.id)])
+            pickings = self.env['stock.picking'].search([('location_dest_id.id', '=', q.location_id.id)])
+            lot = self.env['stock.production.lot'].search([('id', '=', q.lot_id.id)])
+            for picking_id in pickings:
                 q.write({
                     'picking_id': picking_id.id,
                     'r3m_partner_id': picking_id.partner_id.id,
