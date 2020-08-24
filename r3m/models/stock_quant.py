@@ -77,24 +77,24 @@ class StockQuant(models.Model):
                     [('lot_id.id', '=', q.lot_id.id),
                      ('location_dest_id.id', '=', q.location_id.id),
                      ('product_id.id', '=', q.product_id.id)]).picking_id
-            lot = self.env['stock.production.lot'].search([('id', '=', q.lot_id.id)])
-            q.write({
-                'picking_id': picking_id.id,
-                'r3m_partner_id': picking_id.partner_id.id,
-                'r3m_eta': picking_id.r3m_eta,
-                'r3m_po': picking_id.origin,
-                'r3m_bl': picking_id.r3m_bl,
-                'r3m_container': picking_id.r3m_container,
-                'r3m_booking': picking_id.r3m_booking,
-                'r3m_rol_weight': lot.kilos,
-                'r3m_gramaje': self.variant_search(q.product_id.id, 'gramaje'),
-                'r3m_paper_type': self.variant_search(q.product_id.id, 'tipo de papel'),
-                'r3m_format': self.variant_search(q.product_id.id, 'FORMATO DE BOBINA'),
-                'r3m_linear_m': lot.linear_m,
-                'r3m_order': picking_id.r3m_order,
-                'r3m_oc': picking_id.r3m_po,
-                'r3m_picking_date': picking_id.create_date,
-            })
+                lot = self.env['stock.production.lot'].search([('id', '=', q.lot_id.id)])
+                q.write({
+                    'picking_id': picking_id.id,
+                    'r3m_partner_id': picking_id.partner_id.id,
+                    'r3m_eta': picking_id.r3m_eta,
+                    'r3m_po': picking_id.origin,
+                    'r3m_bl': picking_id.r3m_bl,
+                    'r3m_container': picking_id.r3m_container,
+                    'r3m_booking': picking_id.r3m_booking,
+                    'r3m_rol_weight': lot.kilos,
+                    'r3m_gramaje': self.variant_search(q.product_id.id, 'gramaje'),
+                    'r3m_paper_type': self.variant_search(q.product_id.id, 'tipo de papel'),
+                    'r3m_format': self.variant_search(q.product_id.id, 'FORMATO DE BOBINA'),
+                    'r3m_linear_m': lot.linear_m,
+                    'r3m_order': picking_id.r3m_order,
+                    'r3m_oc': picking_id.r3m_po,
+                    'r3m_picking_date': picking_id.create_date,
+                })
 
     def variant_search(self, product_id, variant_search):
         product = self.env['product.product'].search([('id', '=', product_id)])
