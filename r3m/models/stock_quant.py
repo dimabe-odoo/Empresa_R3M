@@ -68,6 +68,7 @@ class StockQuant(models.Model):
                 pickings = self.env['stock.picking'].search([('location_dest_id.id', '=', q.location_id.id)])
                 lot = self.env['stock.production.lot'].search([('id', '=', q.lot_id.id)])
                 for picking_id in pickings:
+                    if q.lot_id.id in picking_id.move_line_ids_without_package.mapped('lot_id').mapped('id'):
                     q.write({
                         'picking_id': picking_id.id,
                         'r3m_partner_id': picking_id.partner_id.id,
@@ -87,7 +88,6 @@ class StockQuant(models.Model):
                     })
             except Exception:
                 raise models.ValidationError(Exception)
-
 
     def variant_search(self, product_id, variant_search):
         product = self.env['product.product'].search([('id', '=', product_id)])
