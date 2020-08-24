@@ -39,6 +39,12 @@ class StockPicking(models.Model):
             item.has_full_container = item.location_id.has_full_container
 
     def check_container(self):
+        if not self.confirmed_container or self.confirmed_container == '':
+            raise models.ValidationError('Debe ingregar el numero del contenedor')
+        if self.lot_products_ids:
+            self.write({
+                'lot_products_ids' : [(5)]
+            })
         products = self.env['stock.production.lot'].search(
             [('container_number', 'like', self.confirmed_container)]).filtered(
             lambda a: self.location_id in a.quant_ids.mapped('location_id') and a.quant_ids.mapped(
