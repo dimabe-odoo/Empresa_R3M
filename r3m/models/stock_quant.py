@@ -16,6 +16,8 @@ class StockQuant(models.Model):
 
     r3m_bl = fields.Char('Bl')
 
+    r3m_vessel = fields.Char('Vessel')
+
     r3m_picking_date = fields.Datetime('Fecha de recepcion')
 
     r3m_roll_number = fields.Char('N° de Rollo')
@@ -51,7 +53,7 @@ class StockQuant(models.Model):
                 values_list['r3m_booking'] = picking_id.r3m_booking
                 values_list['r3m_order'] = picking_id.r3m_order
                 values_list['r3m_oc'] = picking_id.r3m_po
-                values_list['r3m_picking_date'] = picking_id.create_date
+                values_list['r3m_picking_date'] = picking_id.date_done
                 lot = self.env['stock.production.lot'].search([('id', '=', values_list['lot_id'])])
                 if lot and picking_id.picking_type_code == 'incoming':
                     values_list['r3m_rol_weight'] = lot.kilos
@@ -73,7 +75,8 @@ class StockQuant(models.Model):
                             'picking_id': picking_id.id,
                             'r3m_partner_id': picking_id.partner_id.id,
                             'r3m_eta': picking_id.r3m_eta,
-                            'r3m_po': picking_id.origin,
+                            'r3m_po': picking_id.r3m_po,
+                            'r3m_vessel': picking_id.r3m_vessel,
                             'r3m_bl': picking_id.r3m_bl,
                             'r3m_container': q.lot_id.r3m_container,
                             'r3m_booking': picking_id.r3m_booking,
@@ -84,7 +87,7 @@ class StockQuant(models.Model):
                             'r3m_linear_m': lot.linear_m,
                             'r3m_order': picking_id.r3m_order,
                             'r3m_oc': picking_id.r3m_po,
-                            'r3m_picking_date': picking_id.create_date,
+                            'r3m_picking_date': picking_id.date_done,
                         })
             except Exception:
                 raise models.ValidationError(Exception)
