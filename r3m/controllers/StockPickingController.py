@@ -12,23 +12,23 @@ class StockPickingController(http.Controller):
         if result:
             for res in result:
                 recepctions.append({
-                    'Id': res.id,
-                    'Name': res.name,
-                    'CreateAt': res.create_date,
-                    'State': res.state,
-                    'Parent_id': res.partner_id.name,
+                    'id': res.id,
+                    'name': res.name,
+                    'createdAt': res.create_date,
+                    'state': res.state,
+                    'parentId': res.partner_id.name,
                     'Location_Dest': res.location_dest_id.name,
-                    'Products': res.move_line_ids_without_package.mapped('product_id').mapped('display_name'),
-                    'Invoice ': res.r3m_account,
-                    'Order': res.r3m_order,
-                    'ETA': res.r3m_eta,
-                    'DestinationPort': res.r3m_destination.name,
-                    'Container_Number': res.r3m_container,
-                    'Booking_Number': res.r3m_booking,
-                    'BL': res.r3m_bl,
-                    'Vessel': res.r3m_vessel,
-                    'Plant_Ids': res.r3m_partner_plant_ids.mapped('name'),
-                    'Plant_Id': res.r3m_plant_id.mapped('name')
+                    'products': res.move_line_ids_without_package.mapped('product_id').mapped('display_name'),
+                    'invoice ': res.r3m_account,
+                    'order': res.r3m_order,
+                    'eta': res.r3m_eta,
+                    'destinationPort': res.r3m_destination.name,
+                    'containerNumber': res.r3m_container,
+                    'bookingNumber': res.r3m_booking,
+                    'bl': res.r3m_bl,
+                    'vessel': res.r3m_vessel,
+                    'plantIds': res.r3m_partner_plant_ids.mapped('name'),
+                    'plantId': res.r3m_plant_id.mapped('name')
                 })
         return recepctions
 
@@ -39,23 +39,23 @@ class StockPickingController(http.Controller):
         if result:
             for res in result:
                 dispatchs.append({
-                    'Id': res.id,
-                    'Name': res.name,
-                    'CreateAt': res.create_date,
-                    'State': res.state,
-                    'Parent_id': res.partner_id.name,
-                    'Location_Dest': res.location_dest_id.name,
-                    'Products': res.move_line_ids_without_package.mapped('product_id').mapped('display_name'),
-                    'Invoice ': res.r3m_account,
-                    'Order': res.r3m_order,
-                    'ETA': res.r3m_eta,
-                    'DestinationPort': res.r3m_destination.name,
-                    'Container_Number': res.r3m_container,
-                    'Booking_Number': res.r3m_booking,
-                    'BL': res.r3m_bl,
-                    'Vessel': res.r3m_vessel,
-                    'Plant_Ids': res.r3m_partner_plant_ids.mapped('name'),
-                    'Plant_Id': res.r3m_plant_id.mapped('name')
+                    'id': res.id,
+                    'name': res.name,
+                    'createdAt': res.create_date,
+                    'state': res.state,
+                    'parentId': res.partner_id.name,
+                    'locationDest': res.location_dest_id.name,
+                    'products': res.move_line_ids_without_package.mapped('product_id').mapped('display_name'),
+                    'invoice ': res.r3m_account,
+                    'order': res.r3m_order,
+                    'eta': res.r3m_eta,
+                    'destinationPort': res.r3m_destination.name,
+                    'containerNumber': res.r3m_container,
+                    'bookingNumber': res.r3m_booking,
+                    'bl': res.r3m_bl,
+                    'vessel': res.r3m_vessel,
+                    'plantIds': res.r3m_partner_plant_ids.mapped('name'),
+                    'plantId': res.r3m_plant_id.mapped('name')
                 })
         return dispatchs
 
@@ -66,23 +66,23 @@ class StockPickingController(http.Controller):
         if result:
             for res in result:
                 recepctions.append({
-                    'Id': res.id,
-                    'Name': res.name,
-                    'CreateAt': res.create_date,
-                    'State': res.state,
-                    'Parent_id': res.partner_id.name,
-                    'Location_Dest': res.location_dest_id.name,
-                    'Products': res.move_line_ids_without_package.mapped('product_id').mapped('display_name'),
-                    'Invoice ': res.r3m_account,
-                    'Order': res.r3m_order,
-                    'ETA': res.r3m_eta,
-                    'DestinationPort': res.r3m_destination.name,
-                    'Container_Number': res.r3m_container,
-                    'Booking_Number': res.r3m_booking,
-                    'BL': res.r3m_bl,
-                    'Vessel': res.r3m_vessel,
-                    'Plant_Ids': res.r3m_partner_plant_ids.mapped('name'),
-                    'Plant_Id': res.r3m_plant_id.mapped('name')
+                    'id': res.id,
+                    'name': res.name,
+                    'createdAt': res.create_date,
+                    'state': res.state,
+                    'parentId': res.partner_id.name,
+                    'locationDest': res.location_dest_id.name,
+                    'products': res.move_line_ids_without_package.mapped('product_id').mapped('display_name'),
+                    'invoice ': res.r3m_account,
+                    'order': res.r3m_order,
+                    'eta': res.r3m_eta,
+                    'destinationPort': res.r3m_destination.name,
+                    'containerNumber': res.r3m_container,
+                    'bookingNumber': res.r3m_booking,
+                    'bl': res.r3m_bl,
+                    'vessel': res.r3m_vessel,
+                    'plantIds': res.r3m_partner_plant_ids.mapped('name'),
+                    'plantId': res.r3m_plant_id.mapped('name')
                 })
         return recepctions
 
@@ -93,22 +93,22 @@ class StockPickingController(http.Controller):
         if result:
             for res in result:
                 recepctions.append({
-                    'Id': res.id,
-                    'Name': res.name,
-                    'CreateAt': res.create_date,
-                    'State': res.state,
-                    'Parent_id': res.partner_id.name,
-                    'Location_Dest': res.location_dest_id.name,
-                    'Products': res.move_line_ids_without_package.mapped('product_id').mapped('display_name'),
-                    'Invoice ': res.r3m_account,
-                    'Order': res.r3m_order,
-                    'ETA': res.r3m_eta,
-                    'DestinationPort': res.r3m_destination.name,
-                    'Container_Number': res.r3m_container,
-                    'Booking_Number': res.r3m_booking,
-                    'BL': res.r3m_bl,
-                    'Vessel': res.r3m_vessel,
-                    'Plant_Ids': res.r3m_partner_plant_ids.mapped('name'),
-                    'Plant_Id': res.r3m_plant_id.mapped('name')
+                    'id': res.id,
+                    'name': res.name,
+                    'createdAt': res.create_date,
+                    'state': res.state,
+                    'parentId': res.partner_id.name,
+                    'locationDest': res.location_dest_id.name,
+                    'products': res.move_line_ids_without_package.mapped('product_id').mapped('display_name'),
+                    'invoice ': res.r3m_account,
+                    'order': res.r3m_order,
+                    'eta': res.r3m_eta,
+                    'destinationPort': res.r3m_destination.name,
+                    'containerNumber': res.r3m_container,
+                    'bookingNumber': res.r3m_booking,
+                    'bl': res.r3m_bl,
+                    'vessel': res.r3m_vessel,
+                    'plantIds': res.r3m_partner_plant_ids.mapped('name'),
+                    'plantId': res.r3m_plant_id.mapped('name')
                 })
         return recepctions
