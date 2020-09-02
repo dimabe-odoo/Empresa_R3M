@@ -7,7 +7,7 @@ class StockQuantController(http.Controller):
 
     @http.route('/api/stocks', type='json', method=['GET', 'POST'], auth='public', cors='*')
     def get_stock(self):
-        items = request.env['stock.quant'].search([('location_id.usage', '=', 'internal')], order='write_date desc')
+        items = request.env['stock.quant'].sudo().search([('location_id.usage', '=', 'internal')], order='write_date desc')
         stocks = []
         if items:
             for item in items:
