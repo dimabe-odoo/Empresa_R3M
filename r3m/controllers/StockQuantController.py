@@ -12,7 +12,7 @@ class StockQuantController(http.Controller):
         if items:
             for item in items:
                 stocks.append({
-                    'pickingId': item.picking_id,
+                    'pickingId': item.picking_id.id,
                     'eta': item.r3m_eta,
                     'po': item.r3m_po,
                     'container': item.r3m_container,
