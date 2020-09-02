@@ -5,7 +5,7 @@ from datetime import date, timedelta
 
 class StockQuantController(http.Controller):
 
-    @http.route('/api/stocks', type='json', method=['GET'], cors='*')
+    @http.route('/api/stocks', type='json', method=['GET', 'POST'], cors='*')
     def get_stock(self):
         items = request.env['stock.quant'].search([('location_id.usage', '=', 'internal')], order='write_date desc')
         stocks = []
