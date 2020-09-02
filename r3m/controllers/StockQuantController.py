@@ -28,6 +28,8 @@ class StockQuantController(http.Controller):
                     'linearM': item.r3m_linear_m,
                     'partnerName':item.r3m_partner_id.name,
                     'order': item.r3m_order,
-                    'oc': item.r3m_oc
+                    'oc': item.r3m_oc,
+                    'productName': item.product_id.display_name,
+                    'serialNumber': item.lot_id.name
                 })
         return stocks
