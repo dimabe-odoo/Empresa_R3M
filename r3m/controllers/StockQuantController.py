@@ -5,9 +5,9 @@ from datetime import date, timedelta
 
 class StockQuantController(http.Controller):
 
-    @http.route('/api/stocks', type='json', method=['GET', 'POST'], auth='public', cors='*')
+    @http.route('/api/stocks', type='json', method=['GET'], cors='*')
     def get_stock(self):
-        items = request.env['stock.quant'].sudo().search([('location_id.usage', '=', 'internal')], order='write_date desc')
+        items = request.env['stock.quant'].search([('location_id.usage', '=', 'internal')], order='write_date desc')
         stocks = []
         if items:
             for item in items:
@@ -28,8 +28,6 @@ class StockQuantController(http.Controller):
                     'linearM': item.r3m_linear_m,
                     'partnerName':item.r3m_partner_id.name,
                     'order': item.r3m_order,
-                    'oc': item.r3m_oc,
-                    'productName': item.product_id.display_name,
-                    'serialNumber': item.lot_id.name
+                    'oc': item.r3m_oc
                 })
         return stocks
