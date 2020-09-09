@@ -18,7 +18,6 @@
                     <td>
                     </td>
                     <td></td>
-                    <td></td>
                     <td>
                         <span t-esc="sum(o.move_line_ids.mapped('lot_id').mapped('kilos'))"/>
                     </td>
